@@ -1,7 +1,15 @@
 import { Fragment } from "react"
 import { MARCAS, YEARS, PLANES } from "../constants"
+import useCotizador from "../hooks/useCotizador"
 
 const Formulario = () => {
+
+    const {hola} = useCotizador()
+
+    console.log(hola);
+
+
+
   return (
     <>
 

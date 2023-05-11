@@ -4,10 +4,12 @@ const CotizadorContext = createContext()
 
 const CotizadorProvider = ({ children }) => {
 
+    const hola = "Hola Mundo"
+
     return (
         <CotizadorContext.Provider
             value={{
-                
+                hola
             }}
         >
             {children}
