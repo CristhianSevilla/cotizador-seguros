@@ -9,7 +9,7 @@ const Formulario = () => {
     <form action="">
 
         <div className="my-5">
-            <label className="block mb-3 font-bold text-gray-400 uppercase">
+            <label className="block mb-3 font-bold text-gray-500 uppercase">
                 Marca
             </label>
             <select 
@@ -31,7 +31,7 @@ const Formulario = () => {
         </div>
 
         <div className="my-5">
-            <label className="block mb-3 font-bold text-gray-400 uppercase">
+            <label className="block mb-3 font-bold text-gray-500 uppercase">
                 Año
             </label>
             <select 
@@ -42,8 +42,8 @@ const Formulario = () => {
 
                 {YEARS.map(year => (
                     <option
-                    key={year.id}
-                    value={year.id}
+                    key={year}
+                    value={year}
                     >
                         {year}
                     </option>
@@ -53,7 +53,7 @@ const Formulario = () => {
         </div>
 
         <div className="my-5">
-            <label className="block mb-3 font-bold text-gray-400 uppercase">
+            <label className="block mb-3 font-bold text-gray-500 uppercase">
                 Elige un Plan
             </label>
             <div className="flex gap-3 items-center">
