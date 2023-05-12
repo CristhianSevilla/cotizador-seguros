@@ -21,11 +21,16 @@ const CotizadorProvider = ({ children }) => {
     })
     }
 
+    //error
+    const [error, setError] = useState("")
+
     return (
         <CotizadorContext.Provider
             value={{
                 datos,
-                handleChangeDatos
+                handleChangeDatos,
+                error,
+                setError
             }}
         >
             {children}
