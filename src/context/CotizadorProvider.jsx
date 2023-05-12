@@ -1,15 +1,31 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 const CotizadorContext = createContext()
 
 const CotizadorProvider = ({ children }) => {
 
-    const hola = "Hola Mundo"
+    //State para el formulario
+    const [datos, setDatos] = useState({
+        marca: "",
+        year: "",
+        plan: ""
+    })
+
+    //Subir al state
+    const handleChangeDatos = e => {
+    setDatos({
+        //Creamos una copia
+        ...datos,
+        //escribimos lo nuevo
+        [e.target.name] : e.target.value
+    })
+    }
 
     return (
         <CotizadorContext.Provider
             value={{
-                hola
+                datos,
+                handleChangeDatos
             }}
         >
             {children}

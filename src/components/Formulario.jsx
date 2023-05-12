@@ -4,95 +4,98 @@ import useCotizador from "../hooks/useCotizador"
 
 const Formulario = () => {
 
-    const {hola} = useCotizador()
-
-    console.log(hola);
+    const {datos, handleChangeDatos } = useCotizador()
 
 
+    return (
+        <>
 
-  return (
-    <>
 
+            <form action="">
 
-    <form action="">
-
-        <div className="my-5">
-            <label className="block mb-3 font-bold text-gray-500 uppercase">
-                Marca
-            </label>
-            <select 
-            name="marca" 
-            className="w-full p-3 bg-white border border-gray-200" >
-
-                <option value="">Selecciona la Marca</option>
-
-                {MARCAS.map(marca => (
-                    <option
-                    key={marca.id}
-                    value={marca.id}
+                <div className="my-5">
+                    <label className="block mb-3 font-bold text-gray-500 uppercase">
+                        Marca
+                    </label>
+                    <select
+                        name="marca"
+                        className="w-full p-3 bg-white border border-gray-200"
+                        onChange={e => handleChangeDatos(e)}
+                        value={datos.marca}
                     >
-                        {marca.nombre}
-                    </option>
-                ))}
+                        <option value="">Selecciona la Marca</option>
 
-            </select>
-        </div>
+                        {MARCAS.map(marca => (
+                            <option
+                                key={marca.id}
+                                value={marca.id}
+                            >
+                                {marca.nombre}
+                            </option>
+                        ))}
 
-        <div className="my-5">
-            <label className="block mb-3 font-bold text-gray-500 uppercase">
-                Año
-            </label>
-            <select 
-            name="marca" 
-            className="w-full p-3 bg-white border border-gray-200" >
+                    </select>
+                </div>
 
-                <option value="">Selecciona el Año</option>
-
-                {YEARS.map(year => (
-                    <option
-                    key={year}
-                    value={year}
+                <div className="my-5">
+                    <label className="block mb-3 font-bold text-gray-500 uppercase">
+                        Año
+                    </label>
+                    <select
+                        name="year"
+                        className="w-full p-3 bg-white border border-gray-200"
+                        onChange={e => handleChangeDatos(e)}
+                        value={datos.year}
                     >
-                        {year}
-                    </option>
-                ))}
 
-            </select>
-        </div>
+                        <option value="">Selecciona el Año</option>
 
-        <div className="my-5">
-            <label className="block mb-3 font-bold text-gray-500 uppercase">
-                Elige un Plan
-            </label>
-            <div className="flex gap-3 items-center">
-             {PLANES.map(plan => (
-                     <Fragment
-                        key={plan.id}
-                     >
-                        <label>
-                            {plan.nombre}
-                        </label>
-                        <input 
-                        type="radio"
-                        name="plan"
-                        value={plan.id}
-                        />
-                
-                     </Fragment>
-             ))}   
-            </div>
-         
-        </div>
+                        {YEARS.map(year => (
+                            <option
+                                key={year}
+                                value={year}
+                            >
+                                {year}
+                            </option>
+                        ))}
 
-        <input 
-        type="submit"
-        className="w-full bg-fuchsia-700 hover:bg-fuchsia-900 transition-colors text-white cursor-pointer p-3 uppercase font-bold"
-        value="Cotizar"
-        />
+                    </select>
+                </div>
 
-    </form>
-    </>
-  )
+                <div className="my-5">
+                    <label className="block mb-3 font-bold text-gray-500 uppercase">
+                        Elige un Plan
+                    </label>
+                    <div className="flex gap-3 items-center">
+                        {PLANES.map(plan => (
+                            <Fragment
+                                key={plan.id}
+                            >
+                                <label>
+                                    {plan.nombre}
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="plan"
+                                    value={plan.id}
+                                    onChange={e => handleChangeDatos(e)}
+                                />
+
+                            </Fragment>
+                        ))}
+                    </div>
+
+                </div>
+
+                <input
+                    type="submit"
+                    className="w-full bg-fuchsia-700 hover:bg-fuchsia-900 transition-colors text-white cursor-pointer p-3 uppercase font-bold"
+                    value="Cotizar"
+                />
+
+            </form>
+        </>
+    )
 }
 
 export default Formulario
