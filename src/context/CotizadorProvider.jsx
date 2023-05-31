@@ -28,6 +28,9 @@ const CotizadorProvider = ({ children }) => {
     //resultado final
     const [resultado, setResultado] = useState(0)
 
+    //state del tiempo de espera para mostrar el resultado
+    const [cargando, setCargando] = useState(false)
+
     //Cotizar seguro
     const cotizarSeguro = () => {
         //Base
@@ -51,10 +54,20 @@ const CotizadorProvider = ({ children }) => {
         //Formatear dinero
         resultado = formatearDinero(resultado)
 
-        //Subimos al state el resultado
-        setResultado(resultado)
+
+        //Añandimos tiempo de espera
+        setCargando(true)
+
+        setTimeout(() => {
+            //Subimos al state el resultado
+            setResultado(resultado)
+            setCargando(false)
+        }, 2000);
+
 
     }
+
+
 
     return (
         <CotizadorContext.Provider
@@ -64,7 +77,8 @@ const CotizadorProvider = ({ children }) => {
                 error,
                 setError,
                 cotizarSeguro,
-                resultado
+                resultado,
+                cargando
             }}
         >
             {children}

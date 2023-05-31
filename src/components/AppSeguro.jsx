@@ -1,9 +1,11 @@
 import Formulario from "./Formulario"
+import Spinner from "./Spinner"
+import Resultado from "./Resultado"
 import useCotizador from "../hooks/useCotizador"
 
 const AppSeguro = () => {
 
-  const { resultado } = useCotizador()
+  const {cargando } = useCotizador()
 
   return (
     <>
@@ -17,7 +19,7 @@ const AppSeguro = () => {
 
         <Formulario />
 
-        { resultado }
+        { cargando ? <Spinner /> : <Resultado /> }
 
       </main>
     </>
