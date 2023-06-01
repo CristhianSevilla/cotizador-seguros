@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react"
+import { useCallback, useMemo, useRef } from "react"
 import useCotizador from "../hooks/useCotizador"
 import { MARCAS, PLANES } from "../constants"
 
@@ -10,12 +10,12 @@ const Resultado = () => {
     const yearRef = useRef(year)
 
     //Con useCallback evitamos el render hasta que el resultado cambie
-    const [nombreMarca] = useCallback(
+    const [nombreMarca] = useMemo( () =>
         MARCAS.filter(m => m.id === Number(marca)),
         [resultado]
     )
 
-    const [nombrePlan] = useCallback(
+    const [nombrePlan] = useMemo( () =>
         PLANES.filter(p => p.id === Number(plan)),
         [resultado]
     )
