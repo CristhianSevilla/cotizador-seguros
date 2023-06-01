@@ -89,13 +89,14 @@ const Formulario = () => {
                             <Fragment
                                 key={plan.id}
                             >
-                                <label>
+                                <label htmlFor={plan.id}>
                                     {plan.nombre}
                                 </label>
                                 <input
                                     type="radio"
                                     name="plan"
                                     value={plan.id}
+                                    id={plan.id}
                                     onChange={e => handleChangeDatos(e)}
                                 />
 
