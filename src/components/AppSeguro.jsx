@@ -11,7 +11,8 @@ const AppSeguro = () => {
     <>
       <header className="my-10">
 
-        <h1 className="text-white text-center text-4xl font-black mx-5">Cotizador de Seguros de Autos</h1>
+        <h1 className="text-white text-center text-5xl font-black mx-5">Auto Seguro</h1>
+        <p className="text-white mx-5 text-center my-5 capitalize text-2xl">Cotiza el seguro de tu auto</p>
       </header>
 
 
